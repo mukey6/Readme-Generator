@@ -28,6 +28,7 @@ function generateMarkdown(data) {
   ${data.installation}
 
 ## Usage
+
 ${data.usage}
 
 ## License
