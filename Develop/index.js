@@ -33,30 +33,51 @@ async function init() {
         },
         {
             type: 'input',
-            name: 'email',
-            message: 'Please enter your email'
-        },
-        {
-            type: 'input',
-            name: 'github',
-            message: 'Please enter your github username'
-        },
-        {
-            type: 'input',
             name: 'description',
             message: 'Provide a description of the project'
         }, 
         {
             type : 'input',
-            name:'instal',
+            name:'installation',
             message:'Provide with steps'
+            // add an optional section asking if app requires installment
         },
         {
-            type : 'input',
-            name:'license',
-            message:'Provide list of license'
-        }
+            type: 'input',
+            name: 'usage',
+            message: 'How is this application used? '
+        },
+        {
+        type: 'checkbox',
+        name: 'license',
+        message: 'Select a license? ',
+        choices: ['mit', 'apache-2.0 ']
+      },
+
+      {
+          type:'confirm',
+          name:'confirmContribute',
+          message:'would you like to add contribution details?',
+          default: true
+      },
+      {
+          type:'input',
+          name:'contribution',
+          message:'enter contributor names',
+          when: ({ confirmContribute }) => confirmContribute
+      },
+      {
+          type: 'input',
+          name: 'email',
+          message: 'Please enter your email'
+      },
+      {
+          type: 'input',
+          name: 'github',
+          message: 'Please enter your github username'
+      }
     ];
+
     const answers = await inquirer.prompt(questions);
 console.log(answers)
 const markdown = generateMarkdown(answers) 
