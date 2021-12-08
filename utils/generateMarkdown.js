@@ -20,19 +20,18 @@ function renderLicenseSection(license) {
   `;
 
   let licenseLink = renderLicenseLink(license);
-  let licenseBadge = renderLicenseBadge(license);
+  // let licenseBadge = renderLicenseBadge(license);
 
   licenseSection += licenseLink;
-  licenseSection += licenseBadge;
+  // licenseSection += licenseBadge;
 
   return licenseSection;
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  console.log("inside gen ", data);
-  let finalMarkdown = `# ${data.title} 
-
+let finalMarkdown = `# ${data.title} 
+${data.license.length !==0 ? renderLicenseBadge(data.license): ''}
 ## Description
    ${data.description}
    
@@ -45,9 +44,12 @@ function generateMarkdown(data) {
 ## Installation
   ${data.installation}
 
+${data.license.length !==0 ?renderLicenseSection(data.license[0]) : ''}
+
 ## Usage
 
 ${data.usage}
+![${data.imageDescription}](${data.image})
 
 ## Tests
 
@@ -64,11 +66,11 @@ If you have any Questions, reach me at [My Email](${data.email})
   ${data.contribution}`;
   }
 
-  if (data.license.length !== 0) {
-    let license = data.license[0];
-    let licenceSection = renderLicenseSection(license);
-    finalMarkdown += licenceSection;
-  }
+  // if (data.license.length !== 0) {
+  //   let license = data.license[0];
+  //   let licenceSection = renderLicenseSection(license);
+  //   finalMarkdown += licenceSection;
+  // }
   return finalMarkdown;
 }
 

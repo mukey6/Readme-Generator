@@ -42,6 +42,16 @@ async function init() {
       message: "Provide instructions and examples for use ",
     },
     {
+      type: "input",
+      name: "imageDescription",
+      message: "Enter description of the image ",
+    },
+    {
+      type: "input",
+      name: "image",
+      message: "Enter the relative filepath for image (eassets/images/screenshot.png)",
+    },
+    {
       type: "checkbox",
       name: "license",
       message: "Select a license? ",
