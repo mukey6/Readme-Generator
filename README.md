@@ -2,7 +2,7 @@
 
   ![badge](https://img.shields.io/badge/License-mit-green)
 ## Description
-     This application uses users answers that is obtained from inquirer prompt. Once all answers are obtained a new readme file is created in the src directory 
+ This application uses users answers that is obtained from inquirer prompt. Once all answers are obtained a new readme file is created in the src directory 
    
 ## Table of Contents
 
