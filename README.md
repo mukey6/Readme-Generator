@@ -22,7 +22,7 @@
 ## Usage
 
 while in the main directory run node index.js in the terminal
-![ReadMe Screenshot](../assets/image/readme.png)
+![ReadMe Screenshot](./assets/image/readme.png)
 
 
 ## Questions
