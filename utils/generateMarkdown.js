@@ -20,18 +20,25 @@ function renderLicenseSection(license) {
   `;
 
   let licenseLink = renderLicenseLink(license);
-  // let licenseBadge = renderLicenseBadge(license);
 
   licenseSection += licenseLink;
-  // licenseSection += licenseBadge;
 
   return licenseSection;
 }
 
+function renderTest(test) {
+  if (!test) {
+    return "";
+  } else {
+    return `## test 
+${test}`;
+  }
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-let finalMarkdown = `# ${data.title} 
-${data.license.length !==0 ? renderLicenseBadge(data.license): ''}
+  let finalMarkdown = `# ${data.title} 
+${data.license.length !== 0 ? renderLicenseBadge(data.license) : ""}
 ## Description
    ${data.description}
    
@@ -40,25 +47,23 @@ ${data.license.length !==0 ? renderLicenseBadge(data.license): ''}
   - [Installation](#Installation)
   - [Usage](#Usage)
   - [License](#License)
+  - [Questions](#Questions)
 
 ## Installation
   ${data.installation}
 
-${data.license.length !==0 ?renderLicenseSection(data.license[0]) : ''}
+${data.license.length !== 0 ? renderLicenseSection(data.license[0]) : ""}
 
 ## Usage
 
 ${data.usage}
 ![${data.imageDescription}](${data.image})
 
-## Tests
 
 ## Questions
-If you have any Questions, reach me at [My Email](${data.email})
-
-[My Github](https://github.com/${data.github})
+If you have any Questions, reach me at [Email](${data.email}), [Github](https://github.com/${data.github})
     
-
+${renderTest(data.test)} 
 `;
 
   if (data.confirmContribute) {
@@ -66,14 +71,7 @@ If you have any Questions, reach me at [My Email](${data.email})
   ${data.contribution}`;
   }
 
-  // if (data.license.length !== 0) {
-  //   let license = data.license[0];
-  //   let licenceSection = renderLicenseSection(license);
-  //   finalMarkdown += licenceSection;
-  // }
   return finalMarkdown;
 }
 
 module.exports = generateMarkdown;
-
-// How would i add the badge to the top of the page ?
